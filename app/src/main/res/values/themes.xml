@@ -22,4 +22,11 @@
     <style name="Theme.Ensenia.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Ensenia.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SplashTheme" parent="Theme.Ensenia">
+        <item name = "android:windowBackground">
+            @drawable/splash_screen
+        </item>
+    </style>
+
 </resources>

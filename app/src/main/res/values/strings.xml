@@ -7,7 +7,50 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="bienvenida">Bienvenido a enseña</string>
+    <string name="ingresar_datos">Ingresa tus datos</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="correo">Correo</string>
+    <string name="pass">Contraseña</string>
+    <string name="nombre">Nombre</string>
+    <string name="ingresar">Iniciar Sesion</string>
+    <string name="crear">Crear cuenta</string>
+    <string name="recuperar">Recuperar Contraseña</string>
+    <string name="descripcion_imagen">Contexto de una imagen</string>
+    <string name="temas">Temas</string>
+    <string name="regresar">Regresar</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="pregunta">Pregunta</string>
+    <string name="respuesta">Respuesta</string>
+    <string name="iniciar">Iniciar</string>
+
+    <string name="select_temas">Seleccione los temas</string>
+
+    <string name="lecciones">Lecciones</string>
+    <string name="leccion">Leccion</string>
+    <string name="practicas">Practicas</string>
+    <string name="diccionario">Diccionario</string>
+    <string name="busqueda">Busqueda</string>
+    <string name="buscar">Buscar</string>
+    <string name="titulo">Titulo</string>
+    <string name="descripcion">Descripcion</string>
+
+    <string name="num_leccion">Numero de leccion</string>
+    <string name="titulo_leccion">Titulo de leccion</string>
+    <string name="diagonal">/</string>
+
+
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_login">Login</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>

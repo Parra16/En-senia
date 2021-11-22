@@ -10,16 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ensenia">
         <activity
-            android:name=".MainActivity"
+            android:name=".RegistroUsuario"
+            android:exported="true" />
+        <activity
+            android:name=".ui.mainPractica.Practicas"
+            android:exported="true" />
+        <activity
+            android:name=".ui.diccionario.Diccionario"
+            android:exported="true" />
+        <activity
+            android:name=".ui.Lista_temas.ListaTemas"
+            android:exported="true" />
+        <activity
+            android:name=".Login"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Ensenia.NoActionBar">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- android:theme="@style/Theme.Ensenia.NoActionBar" -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>
