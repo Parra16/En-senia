@@ -1,12 +1,14 @@
 package com.example.en_senia.adaptadores;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.en_senia.R;
 import com.example.en_senia.objetos.Tema;
@@ -44,9 +46,10 @@ public class AdaptadorTema extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        Log.d("tema_entro", "recibio"+String.valueOf(getCount()));
         Tema tema = (Tema) getItem(i);
-
         view = LayoutInflater.from(context).inflate(R.layout.item_temas,null);
+        //Toast.makeText(view.getContext(), this.getCount(), Toast.LENGTH_SHORT).show();
         ImageView imgFoto = view.findViewById(R.id.ITMivTemas);
         TextView titulo = view.findViewById(R.id.ITMtvTitulo);
         TextView descripcion = view.findViewById(R.id.ITMtvDescripcion);

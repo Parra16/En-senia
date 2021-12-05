@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
 
         etCorreo = findViewById(R.id.LOGetcorreo);
         etPass = findViewById(R.id.LOGetpass);
-        tvRecuperar = findViewById(R.id.LOGtvrecuperar);
+        //tvRecuperar = findViewById(R.id.LOGtvrecuperar);
         btnIniciar = findViewById(R.id.LOGbtnIniciar);
 
 

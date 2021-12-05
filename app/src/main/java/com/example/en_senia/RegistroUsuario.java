@@ -27,8 +27,7 @@ public class RegistroUsuario extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
-    //DatabaseReference databaseReferenceHotel;
-    //StorageReference storageProfilePicsRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

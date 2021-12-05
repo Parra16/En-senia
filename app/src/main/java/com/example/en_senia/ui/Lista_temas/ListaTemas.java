@@ -2,11 +2,13 @@ package com.example.en_senia.ui.Lista_temas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +33,7 @@ public class ListaTemas extends AppCompatActivity {
     FirebaseDatabase dbFire;
     ArrayList<Tema> temas = new ArrayList<Tema>();
     private AdaptadorTema adaptador;
+    Tema temaSeleccionado = new Tema();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +46,31 @@ public class ListaTemas extends AppCompatActivity {
 
         lvListTemas = findViewById(R.id.LISTEMlvtemas);
         btnRegresar = findViewById(R.id.LISTEMbtnRegresar);
+
+        lvListTemas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int posicion, long l) {
+
+                temaSeleccionado = (Tema)parent.getItemAtPosition(posicion);
+                Toast.makeText(ListaTemas.this, "ID tema_seleccionado"+temaSeleccionado.getId(), Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(ListaTemas.this, temaSeleccionado.getTitulo(), Toast.LENGTH_SHORT).show();
+                Log.d("valor_enviado",String.valueOf(temaSeleccionado.getTitulo()));
+
+                Intent intent = new Intent(view.getContext(),Lecciones.class);
+                intent.putExtra("clave",temaSeleccionado.getTitulo());
+                startActivity(intent);
+
+            }
+        });
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
                 startActivity(intent);
             }
+
+
         });
 
 
@@ -62,9 +84,10 @@ public class ListaTemas extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 temas.clear();
                 for (DataSnapshot objectSnapshot : snapshot.getChildren()) {
-                    Tema p = objectSnapshot.getValue(Tema.class);
-                    temas.add(p);
+                    temas.add(objectSnapshot.getValue(Tema.class));
+                    Log.d("tema_entro", "Entro ");
                 }
+                Log.d("tema_entro", String.valueOf(temas.size()));
                 adaptador = new AdaptadorTema(temas, ListaTemas.this);
                 lvListTemas.setAdapter(adaptador);
             }

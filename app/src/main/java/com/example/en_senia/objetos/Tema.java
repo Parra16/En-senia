@@ -3,12 +3,12 @@ package com.example.en_senia.objetos;
 import android.net.Uri;
 
 public class Tema {
-    private String id;
+    private Long id;
     private String titulo;
     private String descripcion;
-    private Uri imagen;
+    private String imagen;
 
-    public Tema(String id, String titulo, String descripcion, Uri imagen) {
+    public Tema(Long id, String titulo, String descripcion, String imagen) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -18,11 +18,11 @@ public class Tema {
     public Tema() {
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -42,11 +42,11 @@ public class Tema {
         this.descripcion = descripcion;
     }
 
-    public Uri getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(Uri imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 }

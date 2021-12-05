@@ -5,53 +5,58 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        >
-
-        <ImageView
-            android:id="@+id/ITMivTemas"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-
-            app:srcCompat="@drawable/logo_app"
-            android:contentDescription="@string/descripcion"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/ITMivTemas"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/logo_app"
+                android:contentDescription="@string/descripcion"/>
 
 
 
-        <TextView
-            android:id="@+id/ITMtvTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/titulo"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/ITMtvDescripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/descripcion"
-            android:layout_marginLeft="30dp"
 
-            android:textSize="20dp"
-            android:layout_marginTop="30dp"/>
+
+                <TextView
+                    android:id="@+id/ITMtvTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titulo"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:id="@+id/ITMtvDescripcion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/descripcion"
+                    android:layout_marginLeft="30dp"
+                    android:layout_gravity="left"
+                    android:textSize="20dp"
+                    android:layout_marginTop="30dp"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
-    </LinearLayout>
+
+
 
 
 
