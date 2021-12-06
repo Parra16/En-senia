@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.1" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/drawable/ic_felchaderblanca.xml" value="0.1" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/drawable/ic_flechader.xml" value="0.1" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/drawable/ic_flechaizq.xml" value="0.1" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/drawable/ic_flechaizqazul.xml" value="0.1" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/drawable/ic_lupa.xml" value="0.1" />
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/drawable/splash_screen.xml" value="0.19583333333333333" />
-        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_diccionario.xml" value="0.1" />
-        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_lecciones.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_diccionario.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_lecciones.xml" value="0.22" />
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_lista_temas.xml" value="0.1" />
-        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_login2.xml" value="0.22" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_login2.xml" value="0.1" />
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_practicas.xml" value="0.1" />
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/activity_registro_usuario.xml" value="0.1796875" />
@@ -23,6 +29,7 @@
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/fragment_temasintermedio.xml" value="0.14855072463768115" />
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/item_practica.xml" value="0.1" />
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/item_temas.xml" value="0.1" />
+        <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
         <entry key="..\:/Users/JParra/AndroidStudioProjects/Ensenia/app/src/main/res/menu/activity_main_drawer.xml" value="0.1796875" />
       </map>
     </option>

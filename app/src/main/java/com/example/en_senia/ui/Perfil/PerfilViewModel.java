@@ -1,14 +1,14 @@
-package com.example.en_senia.ui.gallery;
+package com.example.en_senia.ui.Perfil;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class PerfilViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public PerfilViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }

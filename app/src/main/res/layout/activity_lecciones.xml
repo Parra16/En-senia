@@ -69,8 +69,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/regresar"
                 android:layout_gravity="center"
-                android:textSize="20dp"
-                android:backgroundTint="@color/azul"
+                android:textSize="15dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/azul"
+                android:drawableLeft="@drawable/ic_flechaizqazul"
                 android:layout_marginRight="20dp"/>
 
             <Button
@@ -79,7 +81,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/siguiente"
                 android:layout_gravity="center"
-                android:textSize="20dp"
+                android:textSize="15dp"
+                android:drawableRight="@drawable/ic_felchaderblanca"
                 android:backgroundTint="@color/azul"/>
 
 

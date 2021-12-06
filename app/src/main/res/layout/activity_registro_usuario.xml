@@ -37,50 +37,33 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="300dp"
+            <EditText
+                android:id="@+id/REGetcorreo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="40dp"
-                >
+                android:inputType="textEmailAddress"
+                android:hint="@string/correo"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/REGetcorreo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:hint="@string/correo"/>
-            </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/REGetpass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/pass"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="300dp"
+            <EditText
+                android:id="@+id/REGetnombre"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="40dp"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/REGetpass"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:hint="@string/pass"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="40dp"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/REGetnombre"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:hint="@string/nombre"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="text"
+                android:hint="@string/nombre"/>
+
+
+
+
+
+
+
             <Button
                 android:id="@+id/REGbtnRegistrarse"
                 android:layout_width="wrap_content"

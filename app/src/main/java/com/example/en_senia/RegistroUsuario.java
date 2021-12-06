@@ -17,46 +17,35 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 public class RegistroUsuario extends AppCompatActivity {
 
     Button btnRegistrarse;
     EditText etCorreo,etPass,etNombre;
-
-    FirebaseAuth mAuth;
-    DatabaseReference databaseReference;
-
+    FirebaseAuth bdMauth;
+    DatabaseReference bdReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_usuario);
         asignarComponentes();
-
-        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //validacion
-
                 btnRegistrarse.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(RegistroUsuario.this, "Iniciando proceso", Toast.LENGTH_LONG).show();
                         //mAuth.signOut();
-                        mAuth.createUserWithEmailAndPassword(etCorreo.getText().toString(),etPass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        bdMauth.createUserWithEmailAndPassword(etCorreo.getText().toString(),etPass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(RegistroUsuario.this, "Sesion registrada", Toast.LENGTH_LONG).show();
                                         Usuario us = new Usuario();
-                                        us.setIdUsuario(mAuth.getCurrentUser().getUid());
+                                        us.setIdUsuario(bdMauth.getCurrentUser().getUid());
                                         us.setCorreo(etCorreo.getText().toString());
                                         us.setPass(etPass.getText().toString());
                                         us.setNombre(etNombre.getText().toString());
-                                        databaseReference
+                                        bdReference
                                                 .child("Usuario").child(us.getIdUsuario()).setValue(us);
 
                                         startActivity(new Intent(RegistroUsuario.this,Login.class));
@@ -65,16 +54,10 @@ public class RegistroUsuario extends AppCompatActivity {
                                     } else {
                                         Toast.makeText(RegistroUsuario.this, "Error con la bd", Toast.LENGTH_SHORT).show();
                                     }
-
                             }
                         });
                     }
                 });
-
-            }
-                });
-
-
     }
 
     private void asignarComponentes(){
@@ -84,9 +67,8 @@ public class RegistroUsuario extends AppCompatActivity {
         etNombre = findViewById(R.id.REGetnombre);
         etPass = findViewById(R.id.REGetpass);
 
-
-        mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        bdMauth = FirebaseAuth.getInstance();
+        bdReference = FirebaseDatabase.getInstance().getReference();
         //databaseReferenceHotel = FirebaseDatabase.getInstance().getReference().child("RTDB_Hotels");
         //storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("STORAGE_Users_Profile_Pics");
     }

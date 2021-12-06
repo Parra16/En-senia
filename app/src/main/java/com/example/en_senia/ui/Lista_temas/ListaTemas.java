@@ -39,13 +39,9 @@ public class ListaTemas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_temas);
-
-        dbFire = FirebaseDatabase.getInstance();
-        dbReference = dbFire.getReference();
+        asignaComponentes();
 
 
-        lvListTemas = findViewById(R.id.LISTEMlvtemas);
-        btnRegresar = findViewById(R.id.LISTEMbtnRegresar);
 
         lvListTemas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -76,6 +72,16 @@ public class ListaTemas extends AppCompatActivity {
 
 
         listarDatos();
+
+    }
+
+    public void asignaComponentes(){
+        btnRegresar = findViewById(R.id.LISTEMbtnRegresar);
+
+        lvListTemas = findViewById(R.id.LISTEMlvtemas);
+
+        dbFire = FirebaseDatabase.getInstance();
+        dbReference = dbFire.getReference();
     }
 
     public void listarDatos() {

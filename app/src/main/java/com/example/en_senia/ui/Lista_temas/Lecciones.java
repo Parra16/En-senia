@@ -8,14 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.en_senia.MainActivity;
 import com.example.en_senia.R;
-import com.example.en_senia.adaptadores.AdaptadorTema;
 import com.example.en_senia.objetos.Tema;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,8 +23,8 @@ import java.util.ArrayList;
 public class Lecciones extends AppCompatActivity {
 
     private Button btnAvanzar,btnRegresar;
-    private DatabaseReference dbReference;
-    private FirebaseDatabase dbFire;
+    private DatabaseReference bdReference;
+    private FirebaseDatabase bdFire;
 
     private ArrayList<Tema> lecciones = new ArrayList<Tema>();
 
@@ -42,19 +37,8 @@ public class Lecciones extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecciones);
-
-
         asignaComponentes();
         consultarDatos();
-
-
-
-
-
-
-
-        //cambiarLeccion();
-
         retorceder();
         avanzar();
     }
@@ -72,10 +56,6 @@ public class Lecciones extends AppCompatActivity {
                     Intent intent = new Intent(view.getContext(), ListaTemas.class);
                     startActivity(intent);
                 }
-
-
-
-
             }
         });
 
@@ -93,22 +73,20 @@ public class Lecciones extends AppCompatActivity {
                     Intent intent = new Intent(view.getContext(), ListaTemas.class);
                     startActivity(intent);
                 }
-
-
             }
         });
 
     }
     public void asignaComponentes(){
-        dbFire = FirebaseDatabase.getInstance();
-        dbReference = dbFire.getReference();
         btnRegresar = findViewById(R.id.LECCIONESbtnAnterior);
         btnAvanzar = findViewById(R.id.LECCIONESbtnSiguiente);
-        //imgView = findViewById(R.id.LECIONESivImagen);
+
         tvTitulo = findViewById(R.id.LECIONEStvtitulo);
         tvDescripcion = findViewById(R.id.LECIONEStvDescripcion);
         tvTituloTem = findViewById(R.id.LECIONEStvTituloTema);
 
+        bdFire = FirebaseDatabase.getInstance();
+        bdReference = bdFire.getReference();
     }
 
     public void consultarDatos() {
@@ -118,7 +96,7 @@ public class Lecciones extends AppCompatActivity {
         Log.d("tema_recibido",tema);
         //tvTituloTem.setText(tema);
 
-        dbReference.child("Lecciones").child(tema).addValueEventListener(new ValueEventListener() {
+        bdReference.child("Lecciones").child(tema).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 lecciones.clear();
@@ -129,8 +107,6 @@ public class Lecciones extends AppCompatActivity {
                 }
                 Log.d("tema_tamanio", String.valueOf(lecciones.size()));
             }
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.d("tema_fallo", error.getDetails());

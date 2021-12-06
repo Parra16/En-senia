@@ -4,9 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,12 +16,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 
 public class Login extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private FirebaseUser currentUser;
+    private FirebaseAuth bdMauth;
+    private FirebaseUser bdCurrentUser;
 
     EditText etCorreo, etPass;
     TextView tvRecuperar, tvCrear;
@@ -35,14 +32,8 @@ public class Login extends AppCompatActivity {
         setTheme(R.style.Theme_Ensenia_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+        asignaComponentes();
 
-        etCorreo = findViewById(R.id.LOGetcorreo);
-        etPass = findViewById(R.id.LOGetpass);
-        //tvRecuperar = findViewById(R.id.LOGtvrecuperar);
-        btnIniciar = findViewById(R.id.LOGbtnIniciar);
-
-
-        tvCrear = findViewById(R.id.LOGtvcrear);
         tvCrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,69 +49,37 @@ public class Login extends AppCompatActivity {
                 logear(etCorreo.getText().toString(),etPass.getText().toString(),view);
             }
         });
-
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            //reload();//usuario logeado
-        } else {
-            //usuario no logeado
-        }
-
     }
 
-    public void crearUsuario(String email, String password, View view) {
-        if (email != null && password != null) {
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d("TAG", "createUserWithEmail:success");
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Intent intent = new Intent(view.getContext(), MainActivity.class);
-                                intent.putExtra("usuario", user);
-                                startActivity(intent);
+    public void asignaComponentes(){
+        btnIniciar = findViewById(R.id.LOGbtnIniciar);
 
-                                //updateUI(user);
+        etCorreo = findViewById(R.id.LOGetcorreo);
+        etPass = findViewById(R.id.LOGetpass);
 
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w("TAG", "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(Login.this, "Fallo en crear usuario",
-                                        Toast.LENGTH_SHORT).show();
-                                //updateUI(null);
-                            }
-                        }
-                    });
-        }
+        tvCrear = findViewById(R.id.LOGtvcrear);
+
+        bdMauth = FirebaseAuth.getInstance();
+        bdCurrentUser = bdMauth.getCurrentUser();
     }
+
+
 
 
     public void logear(String correo, String pass,View view){
-
-        mAuth.signInWithEmailAndPassword(correo,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+        bdMauth.signInWithEmailAndPassword(correo,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>(){
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(Login.this, "Se ha logeado", Toast.LENGTH_SHORT).show();
-
-                    FirebaseUser user = mAuth.getCurrentUser();
+                    FirebaseUser user = bdMauth.getCurrentUser();
                     Intent intent = new Intent(view.getContext(), MainActivity.class);
                     intent.putExtra("usuario", user);
                     startActivity(intent);
-
-
                 } else {
                     Toast.makeText(Login.this, "Correo no encontrado", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
     }
-
-
-
 }

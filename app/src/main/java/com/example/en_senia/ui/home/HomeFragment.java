@@ -16,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.en_senia.R;
 import com.example.en_senia.databinding.FragmentHomeBinding;
 import com.example.en_senia.ui.Lista_temas.ListaTemas;
-import com.example.en_senia.ui.Lista_temas.ListaTemasFragment;
 import com.example.en_senia.ui.diccionario.Diccionario;
 import com.example.en_senia.ui.mainPractica.Practicas;
 
@@ -87,14 +86,14 @@ public class HomeFragment extends Fragment {
 
     public void cambiarFragmentLecciones(){
         // Crear fragmento de tu clase
-        Fragment fragment = new ListaTemasFragment();
+        //Fragment fragment = new ListaTemasFragment();
 // Obtener el administrador de fragmentos a través de la actividad
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         //getActivity().getSupportFragmentManager();
 // Definir una transacción
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 // Remplazar el contenido principal por el fragmento
-        fragmentTransaction.replace(R.id.nav_host_fragment_content_main, fragment);
+        //  fragmentTransaction.replace(R.id.nav_host_fragment_content_main, fragment);
         fragmentTransaction.addToBackStack(null);
 // Cambiar
         fragmentTransaction.commit();

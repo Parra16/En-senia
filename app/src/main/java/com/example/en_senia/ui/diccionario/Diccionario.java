@@ -10,13 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.en_senia.MainActivity;
 import com.example.en_senia.R;
 import com.example.en_senia.adaptadores.AdaptadorTema;
 import com.example.en_senia.objetos.Tema;
-import com.example.en_senia.ui.Lista_temas.ListaTemas;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,10 +27,10 @@ public class Diccionario extends AppCompatActivity {
 
     private Button btnRegresar,btnBuscar;
     private EditText etbusqueda;
-    DatabaseReference dbReference;
-    FirebaseDatabase dbFire;
-    private ListView lvListTemas;
-    ArrayList<Tema> temas = new ArrayList<Tema>();
+    DatabaseReference bdReference;
+    FirebaseDatabase bdFire;
+    private ListView lvTemas;
+    ArrayList<Tema> arrtemas = new ArrayList<Tema>();
     private AdaptadorTema adaptador;
     Tema temaSeleccionado = new Tema();
 
@@ -40,12 +38,8 @@ public class Diccionario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diccionario);
+        asigComponentes();
 
-        dbFire = FirebaseDatabase.getInstance();
-        dbReference = dbFire.getReference();
-
-        etbusqueda = findViewById(R.id.DICetBusqueda);
-        btnBuscar = findViewById(R.id.DICbtnBuscar);
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,10 +47,7 @@ public class Diccionario extends AppCompatActivity {
             }
         });
 
-        lvListTemas = findViewById(R.id.DIClvResultados);
 
-
-        btnRegresar = findViewById(R.id.DICbtnRegresar);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,20 +58,27 @@ public class Diccionario extends AppCompatActivity {
 
     }
 
+    private void asigComponentes(){
+        btnBuscar = findViewById(R.id.DICbtnBuscar);
+        btnRegresar = findViewById(R.id.DICbtnRegresar);
+
+        etbusqueda = findViewById(R.id.DICetBusqueda);
+
+        lvTemas = findViewById(R.id.DIClvResultados);
+
+        bdFire = FirebaseDatabase.getInstance();
+        bdReference = bdFire.getReference();
+    }
+
     public void listarDatos(String busqueda) {
         Log.d("busqueda", busqueda);
-        dbReference.child("Lecciones").child("a").addValueEventListener(new ValueEventListener() {
+        arrtemas.clear();
+        bdReference.child("Lecciones").child("Abecedario").child(busqueda).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                temas.clear();
-                for (DataSnapshot objectSnapshot : snapshot.getChildren()) {
-                     temas.add(objectSnapshot.getValue(Tema.class));
-                    Log.d("diccionario", "Entro ");
-                    Log.d("diccionario_key",String.valueOf(objectSnapshot.getKey()) );
-                }
-                //Log.d("diccionario", String.valueOf(temas.size()));
-                //adaptador = new AdaptadorTema(temas, Diccionario.this);
-                //lvListTemas.setAdapter(adaptador);
+                arrtemas.add(snapshot.getValue(Tema.class));
+                adaptador = new AdaptadorTema(arrtemas, Diccionario.this);
+                lvTemas.setAdapter(adaptador);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

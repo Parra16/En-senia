@@ -26,20 +26,13 @@
                 android:textStyle="bold"
                 android:paddingTop="10dp"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="300dp"
+            <EditText
+                android:id="@+id/DICetBusqueda"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/DICetBusqueda"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:hint="@string/busqueda"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                android:hint="@string/busqueda"/>
 
             <Button
                 android:id="@+id/DICbtnBuscar"
@@ -47,9 +40,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/buscar"
                 android:textSize="20dp"
+                android:drawableRight="@drawable/ic_lupa"
                 android:backgroundTint="@color/azul"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                />
 
             <ListView
                 android:id="@+id/DIClvResultados"

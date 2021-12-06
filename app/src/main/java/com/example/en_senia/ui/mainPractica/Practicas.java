@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.example.en_senia.MainActivity;
 import com.example.en_senia.R;
 import com.example.en_senia.ui.diccionario.Diccionario;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Practicas extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class Practicas extends AppCompatActivity {
         setContentView(R.layout.activity_practicas);
 
 
-        btnRegresar = findViewById(R.id.PRACbtnRegresar);
+        asignaComponentes();
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,9 +29,13 @@ public class Practicas extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnIniciar = findViewById(R.id.PRACbtnIniciar);
+
     }
 
+    public void asignaComponentes(){
+        btnRegresar = findViewById(R.id.PRACbtnRegresar);
+        btnIniciar = findViewById(R.id.PRACbtnIniciar);
+    }
 
 
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.en_senia.R;
 import com.example.en_senia.objetos.Tema;
@@ -17,13 +16,13 @@ import java.util.ArrayList;
 
 public class AdaptadorTema extends BaseAdapter {
 
-    ArrayList<Tema> listitems;
+    ArrayList<Tema> arrItems;
     Context context;
     public AdaptadorTema() {
     }
 
-    public AdaptadorTema(ArrayList<Tema> listitems, Context context) {
-        this.listitems = listitems;
+    public AdaptadorTema(ArrayList<Tema> arrItems, Context context) {
+        this.arrItems = arrItems;
         this.context = context;
     }
 
@@ -31,12 +30,12 @@ public class AdaptadorTema extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return listitems.size();
+        return arrItems.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return listitems.get(i);
+        return arrItems.get(i);
     }
 
     @Override
